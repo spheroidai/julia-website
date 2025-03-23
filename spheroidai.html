@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Julia by Spheroid AI - Revolutionizing ovarian cancer care with an agentic spheroid technology" />
+  <title>Julia by Spheroid AI – AI Oncology Assistant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+  <div id="app" class="min-h-screen">
+    <nav class="bg-white shadow-sm">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center">
+            <a href="#" class="flex items-center gap-3">
+              <img src="LOGOcouleur.png" alt="Spheroid AI Logo" class="h-9 w-auto">
+              <span class="text-xl font-medium tracking-wider text-gray-800">SPHEROID AI</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <a href="#julia" class="text-gray-700 hover:text-teal-600 font-medium">Julia</a>
+            <a href="#features" class="text-gray-700 hover:text-teal-600 font-medium">Features</a>
+            <a href="#use-cases" class="text-gray-700 hover:text-teal-600 font-medium">Use Cases</a>
+            <a href="#faq" class="text-gray-700 hover:text-teal-600 font-medium">FAQ</a>
+            <button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 font-medium transition-colors duration-150 inline-flex items-center gap-2">
+              Sign up
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+          <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMenu()" aria-expanded="false" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col gap-4">
+            <a href="#julia" class="text-gray-700 hover:text-teal-600 font-medium">Julia</a>
+            <a href="#features" class="text-gray-700 hover:text-teal-600 font-medium">Features</a>
+            <a href="#use-cases" class="text-gray-700 hover:text-teal-600 font-medium">Use Cases</a>
+            <a href="#faq" class="text-gray-700 hover:text-teal-600 font-medium">FAQ</a>
+            <button class="w-full px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 font-medium transition-colors duration-150 inline-flex items-center gap-2">
+              Sign up
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuButton = document.querySelector('[onclick="toggleMenu()"]');
+        
+        mobileMenu.classList.toggle('hidden');
+        
+        // Update aria-expanded attribute for accessibility
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        menuButton.setAttribute('aria-expanded', isExpanded);
+      }
+
+      // Close mobile menu when clicking menu items
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          const mobileMenu = document.getElementById('mobile-menu');
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    </script>
+
+    <header class="text-center py-24 bg-gradient-to-r from-teal-600 to-teal-800 text-white overflow-hidden relative">
+      <div class="absolute inset-0 bg-[url('pattern.svg')] opacity-10"></div>
+      <div class="max-w-[90rem] mx-auto px-4 relative z-10">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">I'm <span class="text-yellow-300">Julia</span>! Your AI Oncology Assistant</h1>
+        <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto">Personalizing ovarian cancer care with agentic spheroids</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6 items-center">
+          <button class="w-full sm:w-auto px-8 py-4 bg-white text-teal-600 rounded-lg hover:bg-yellow-50 font-semibold shadow-lg transition-all duration-150 ease-in-out inline-flex items-center justify-center gap-2">
+            Onboard Julia
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </button>
+          <button class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 font-semibold transition-all duration-150 ease-in-out inline-flex items-center justify-center gap-2">
+            Watch Demo
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-8">
+      <section id="experience-julia" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center text-teal-600 uppercase mb-2">Julia</h2>
+          <h3 class="text-4xl font-bold text-center text-gray-900 mb-4">Seamless integration with your workflow</h3>
+          <p class="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">Experience how Julia combines omics data analysis with LLM-powered insights for precision oncology</p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            <!-- Excel Interface (3 columns) -->
+            <div class="lg:col-span-3 bg-white rounded-xl shadow-xl overflow-hidden max-h-[500px]">
+              <!-- Excel Ribbon -->
+              <div class="bg-[#217346] text-white p-2">
+                <div class="flex items-center gap-4 border-b border-white/20 pb-2 mb-2">
+                  <img src="excel.png" alt="Excel" class="w-8 h-8">
+                  <span class="font-semibold">PatientData.xlsx</span>
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                  <span class="hover:bg-white/10 px-3 py-1 rounded cursor-pointer">File</span>
+                  <span class="hover:bg-white/10 px-3 py-1 rounded cursor-pointer">Home</span>
+                  <span class="bg-white/20 px-3 py-1 rounded cursor-pointer flex items-center gap-2">
+                    Julia
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                  <span class="hover:bg-white/10 px-3 py-1 rounded cursor-pointer">Data</span>
+                  <span class="hover:bg-white/10 px-3 py-1 rounded cursor-pointer">View</span>
+                </div>
+              </div>
+
+              <!-- Julia Menu -->
+              <div class="bg-white border-b border-gray-200 p-2 flex items-center gap-4 text-sm">
+                <button class="px-3 py-1 bg-teal-600 text-white rounded hover:bg-teal-700 transition-colors duration-150 flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  Run Analysis
+                </button>
+                <button class="px-3 py-1 hover:bg-gray-100 rounded transition-colors duration-150 flex items-center gap-2">
+                  <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5M8 8v8m8-16l4 4-4 4m-4-8l4 4-4 4" />
+                  </svg>
+                  Gene Expression
+                </button>
+                <button class="px-3 py-1 hover:bg-gray-100 rounded transition-colors duration-150 flex items-center gap-2">
+                  <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  AI Predictions
+                </button>
+                <button class="px-3 py-1 hover:bg-gray-100 rounded transition-colors duration-150 flex items-center gap-2">
+                  <svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                  </svg>
+                  Treatment Match
+                </button>
+              </div>
+
+              <!-- Excel Formula Bar -->
+              <div class="bg-gray-100 border-b border-gray-200 p-2 flex items-center gap-2">
+                <div class="px-2 py-1 bg-white border border-gray-300 rounded text-sm text-gray-600 w-32">Gene Data</div>
+                <div class="px-2 py-1 bg-white border border-gray-300 rounded text-sm text-gray-600 flex-grow">=JULIA.ANALYZE(Gene_Expression, Growth_Data, Blood_Markers)</div>
+              </div>
+
+              <!-- Excel Content -->
+              <div class="p-4 overflow-x-auto">
+                <table class="w-full border-collapse text-sm">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th class="border border-gray-300 px-4 py-2 text-left">Patient ID</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">Growth Rate</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">Response</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">Gene Expression</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">CA-125</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">HE4</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">Treatment</th>
+                      <th class="border border-gray-300 px-4 py-2 text-left">Confidence</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2">P-001</td>
+                      <td class="border border-gray-300 px-4 py-2">1.8x</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600">90% inhibition</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600 hover:underline cursor-pointer">BRCA1↑, TP53↓</td>
+                      <td class="border border-gray-300 px-4 py-2">85 U/mL</td>
+                      <td class="border border-gray-300 px-4 py-2">110 pmol/L</td>
+                      <td class="border border-gray-300 px-4 py-2">PARP Inhibitor</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600">92%</td>
+                    </tr>
+                    <tr class="bg-teal-50">
+                      <td class="border border-gray-300 px-4 py-2">P-002</td>
+                      <td class="border border-gray-300 px-4 py-2">2.1x</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600">85% inhibition</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600 hover:underline cursor-pointer">BRCA2↓, TP53↑</td>
+                      <td class="border border-gray-300 px-4 py-2">120 U/mL</td>
+                      <td class="border border-gray-300 px-4 py-2">140 pmol/L</td>
+                      <td class="border border-gray-300 px-4 py-2">Platinum-based</td>
+                      <td class="border border-gray-300 px-4 py-2 text-teal-600">88%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Chat Interface (2 columns) -->
+            <div class="lg:col-span-2 bg-white rounded-xl shadow-xl overflow-hidden flex flex-col h-[500px]">
+              <div class="bg-teal-600 p-4 text-white">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <span class="text-teal-600 font-bold">J</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">I'm Julia</h4>
+                    <p class="text-sm text-teal-100">Ask me anything</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex-grow p-4 space-y-4 bg-gray-50 overflow-y-auto">
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 bg-teal-600 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <span class="text-white font-bold">J</span>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm max-w-[80%]">
+                    <p class="text-gray-700">Virtual simulation for P-001 shows 1.8x growth rate. RNAseq indicates high BRCA1 expression. AI predicts high PARP inhibitor sensitivity. Would you like to see the detailed predictions?</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3 justify-end">
+                  <div class="bg-teal-50 rounded-lg p-3 shadow-sm max-w-[80%]">
+                    <p class="text-gray-700">Yes, show me the predictions.</p>
+                  </div>
+                  <div class="w-8 h-8 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <span class="text-gray-600 font-bold">D</span>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <div class="w-8 h-8 bg-teal-600 rounded-full flex-shrink-0 flex items-center justify-center">
+                    <span class="text-white font-bold">J</span>
+                  </div>
+                  <div class="bg-white rounded-lg p-3 shadow-sm max-w-[80%]">
+                    <p class="text-gray-700">AI predicts 92% treatment success with PARP inhibitors. Analysis combines virtual response with patient biomarkers (CA-125: 85 U/mL, HE4: 110 pmol/L). BRCA1 expression pattern indicates high drug sensitivity.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 border-t border-gray-200 bg-white">
+                <div class="flex gap-2">
+                  <input type="text" placeholder="Ask about gene expression and treatment predictions..." class="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-teal-500">
+                  <button class="flex-shrink-0 w-9 h-9 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-150 flex items-center justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 text-center">
+            <button class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 inline-flex items-center gap-2 font-semibold shadow-lg transition-all duration-150 ease-in-out">
+              Try Julia
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="py-24 bg-gray-50">
+        <div class="max-w-[90rem] mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center text-teal-600 uppercase mb-2">Features</h2>
+          <h3 class="text-4xl font-bold text-center text-gray-900 mb-4">Advanced Cancer Analysis Platform</h3>
+          <p class="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">Harness the power of agentic spheroids and multilayer AI for personalized cancer care</p>
+
+          <!-- Network Visualization -->
+          <div class="mb-20 relative">
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-8 overflow-hidden">
+              <div class="aspect-[16/9] relative h-[450px]">
+                <!-- Network Background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-teal-50 to-gray-50"></div>
+                
+                <!-- Connection Lines with Animated Arrows - UPDATED FOR NEW POSITIONS -->
+                <div class="absolute inset-0 z-0">
+                  <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                      <marker id="arrowhead" markerWidth="4" markerHeight="4" refX="4" refY="2" orient="auto">
+                        <polygon points="0 0, 4 2, 0 4" fill="#0d9488" />
+                      </marker>
+                    </defs>
+                    
+                    <!-- Animated lines - Left side (Agents to Julia) -->
+                    <!-- Data Spheroid to Julia -->
+                    <line x1="24" y1="15" x2="50" y2="50" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="5s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Tumor Spheroid to Julia -->
+                    <line x1="20" y1="50" x2="50" y2="50" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="4s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Therapeutic Spheroid to Julia -->
+                    <line x1="22" y1="85" x2="50" y2="50" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="6s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- NEW: Data Spheroid to Tumor Spheroid -->
+                    <line x1="24" y1="15" x2="20" y2="50" stroke="#0d9488" stroke-width="1" stroke-dasharray="2,2">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="3.5s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- NEW: Therapeutic Spheroid to Tumor Spheroid -->
+                    <line x1="22" y1="85" x2="20" y2="50" stroke="#0d9488" stroke-width="1" stroke-dasharray="2,2">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="4.5s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Right side (Julia to Outputs) -->
+                    <!-- Julia to Tumor Monitoring -->
+                    <line x1="50" y1="50" x2="78" y2="15" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="5s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Julia to Molecular Markers -->
+                    <line x1="50" y1="50" x2="82" y2="50" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="4s" repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Julia to Treatment Planning -->
+                    <line x1="50" y1="50" x2="78" y2="85" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arrowhead)">
+                      <animate attributeName="stroke-dashoffset" values="50;0" dur="6s" repeatCount="indefinite" />
+                    </line>
+                  </svg>
+                </div>
+                
+                <!-- Central Julia -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full shadow-lg flex flex-col items-center justify-center p-2 border-2 border-white relative">
+                    <!-- Robot Face -->
+                    <div class="w-full h-full flex flex-col items-center justify-center">
+                      <div class="flex gap-5 mb-2">
+                        <!-- Eyes -->
+                        <div class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                          <div class="w-2.5 h-2.5 bg-yellow-900 rounded-full"></div>
+                        </div>
+                        <div class="w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                          <div class="w-2.5 h-2.5 bg-yellow-900 rounded-full"></div>
+                        </div>
+                      </div>
+                      <!-- Smile -->
+                      <div class="w-10 h-5 bg-yellow-500 rounded-full mt-2 flex items-center justify-center">
+                        <div class="w-8 h-2 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                    <!-- Antennas -->
+                    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+                      <div class="flex gap-5">
+                        <div class="w-1.5 h-6 bg-yellow-300 rounded-full relative">
+                          <div class="w-2.5 h-2.5 bg-cyan-400 rounded-full absolute -top-1.5 -left-0.5"></div>
+                        </div>
+                        <div class="w-1.5 h-6 bg-yellow-300 rounded-full relative">
+                          <div class="w-2.5 h-2.5 bg-cyan-400 rounded-full absolute -top-1.5 -left-0.5"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-white font-bold text-sm mt-1">Julia</span>
+                  </div>
+                </div>
+
+                <!-- Agent Nodes on LEFT side - REPOSITIONED WITH FOUNDATION AT BOTTOM -->
+                <!-- Data Spheroid (Top) -->
+                <div class="absolute top-[15%] left-[24%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="flex items-center">
+                    <div class="mr-2 text-right" style="position: absolute; right: 100%; width: 90px; text-align: center;">
+                      <span class="text-xs font-medium text-gray-700">Data<br>Agent</span>
+                    </div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full shadow-md flex flex-col items-center justify-center p-2 border-2 border-white relative">
+                      <!-- Agent 2 Face -->
+                      <div class="w-full h-full flex flex-col items-center justify-center">
+                        <div class="flex gap-3 mb-1">
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-emerald-900 rounded-full"></div>
+                          </div>
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-emerald-900 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div class="w-6 h-2 bg-white rounded-full mt-1"></div>
+                      </div>
+                      <!-- Antenna -->
+                      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="w-1 h-4 bg-emerald-300 rounded-full relative">
+                          <div class="w-2 h-2 bg-cyan-400 rounded-full absolute -top-1 -left-0.5"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tumor Spheroid (Middle) -->
+                <div class="absolute top-[50%] left-[20%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="flex items-center">
+                    <div class="mr-2 text-right" style="position: absolute; right: 100%; width: 90px; text-align: center;">
+                      <span class="text-xs font-medium text-gray-700">Spheroid<br>Agent</span>
+                    </div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full shadow-md flex flex-col items-center justify-center p-2 border-2 border-white relative">
+                      <!-- Agent 1 Face -->
+                      <div class="w-full h-full flex flex-col items-center justify-center">
+                        <div class="flex gap-3 mb-1">
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-blue-900 rounded-full"></div>
+                          </div>
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-blue-900 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div class="w-6 h-2 bg-white rounded-full mt-1"></div>
+                      </div>
+                      <!-- Antenna -->
+                      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="w-1 h-4 bg-blue-300 rounded-full relative">
+                          <div class="w-2 h-2 bg-cyan-400 rounded-full absolute -top-1 -left-0.5"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Therapeutic Spheroid (Bottom) -->
+                <div class="absolute top-[85%] left-[22%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="flex items-center">
+                    <div class="mr-2 text-right" style="position: absolute; right: 100%; width: 90px; text-align: center;">
+                      <span class="text-xs font-medium text-gray-700">Therapeutic<br>Agent</span>
+                    </div>
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full shadow-md flex flex-col items-center justify-center p-2 border-2 border-white relative">
+                      <!-- Agent 3 Face -->
+                      <div class="w-full h-full flex flex-col items-center justify-center">
+                        <div class="flex gap-3 mb-1">
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-purple-900 rounded-full"></div>
+                          </div>
+                          <div class="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-purple-900 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div class="w-6 h-2 bg-white rounded-full mt-1"></div>
+                      </div>
+                      <!-- Antenna -->
+                      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <div class="w-1 h-4 bg-purple-300 rounded-full relative">
+                          <div class="w-2 h-2 bg-cyan-400 rounded-full absolute -top-1 -left-0.5"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- OUTPUT NODES on RIGHT side - REPOSITIONED TO PREVENT OVERLAP -->
+                <div class="absolute top-[15%] right-[22%] transform translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="w-24 h-24 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-xl shadow-md flex flex-col items-center justify-center p-2">
+                    <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                    <span class="text-white font-bold text-xs text-center">Tumor<br>Monitoring</span>
+                  </div>
+                </div>
+
+                <div class="absolute top-[50%] right-[18%] transform translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="w-24 h-24 bg-gradient-to-br from-rose-400 to-rose-600 rounded-xl shadow-md flex flex-col items-center justify-center p-2">
+                    <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <span class="text-white font-bold text-xs text-center">Molecular<br>Markers</span>
+                  </div>
+                </div>
+
+                <div class="absolute top-[85%] right-[22%] transform translate-x-1/2 -translate-y-1/2 z-10">
+                  <div class="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl shadow-md flex flex-col items-center justify-center p-2">
+                    <svg class="w-8 h-8 text-white mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-white font-bold text-xs text-center">Treatment<br>Planning</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center mt-6">
+                <h4 class="text-2xl font-bold text-gray-900 mb-3">Julia's Agentic Network</h4>
+                <p class="text-gray-600 max-w-2xl mx-auto">Managed by Julia, back-end agents work together to predict patient's tumor behavior, process RNAseq data, predict potential recurrence status and recommend optimal therapies based on established protocols.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Excel Integration</h4>
+              <p class="text-gray-600">Seamlessly analyze spheroid data and molecular profiles through familiar Excel interface</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Agentic Spheroids</h4>
+              <p class="text-gray-600">Intelligent agents model tumor behavior to predict treatment responses with high accuracy</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Protocol Compliance</h4>
+              <p class="text-gray-600">Treatment recommendations aligned with NCCN, ESMO, and ASCO guidelines</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Precision Matching</h4>
+              <p class="text-gray-600">Match patients with optimal therapeutics using comprehensive molecular profiles</p>
+            </div>
+          </div>
+
+          <div class="mt-16 text-center">
+            <button class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 inline-flex items-center gap-2 font-semibold shadow-lg transition-all duration-150 ease-in-out">
+              Start Using Julia
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section id="use-cases" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center text-teal-600 uppercase mb-2">Use Cases</h2>
+          <h3 class="text-4xl font-bold text-center text-gray-900 mb-4">Julia's Precision Oncology Solutions</h3>
+          <p class="text-xl text-center text-gray-700 mb-16 max-w-3xl mx-auto">Empowering oncologists with AI-driven insights for personalized patient care</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 bg-white shadow-lg rounded-xl text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Molecular Analysis</h4>
+              <p class="text-gray-600">Process RNAseq data and blood sample markers (including CA-125 and HE4) to understand each patient's unique molecular profile</p>
+            </div>
+
+            <div class="p-8 bg-white shadow-lg rounded-xl text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Response Prediction</h4>
+              <p class="text-gray-600">Predict treatment responses using agentic spheroids and machine learning models trained on clinical data</p>
+            </div>
+
+            <div class="p-8 bg-white shadow-lg rounded-xl text-center group hover:shadow-xl transition-shadow duration-300">
+              <div class="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">Treatment Planning</h4>
+              <p class="text-gray-600">Generate personalized treatment recommendations based on molecular profiles and protocol guidelines</p>
+            </div>
+          </div>
+
+          <div class="mt-16 text-center">
+            <a href="#demo" class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 inline-flex items-center gap-2 font-semibold shadow-lg transition-all duration-150 ease-in-out">
+              See Julia in Action
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="get-started" class="mb-12 bg-gray-50 py-16">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-teal-600 uppercase text-center">Get Started</h2>
+          <h3 class="text-4xl font-bold text-gray-900 text-center mb-12">Begin your Analysis with Julia</h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">1. Patient's Data</h4>
+              <p class="text-gray-700 mb-4">Import RNAseq data and blood sample results through Julia's Excel interface</p>
+              <ul class="text-sm text-gray-600 space-y-2 list-disc inline-block text-left mx-auto">
+                <li>Gene expression profiles from RNAseq</li>
+                <li>Serum biomarkers (CA-125, HE4)</li>
+                <li>Clinical history and outcomes</li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">2. Multilayer Analysis</h4>
+              <p class="text-gray-700 mb-4">Julia processes your data through her three specialized AI layers</p>
+              <ul class="text-sm text-gray-600 space-y-2 list-disc inline-block text-left mx-auto">
+                <li>Virtual tumor behavior modeling</li>
+                <li>Multi-omics data integration</li>
+                <li>Treatment response prediction</li>
+              </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+              <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold mb-4">3. Review Results</h4>
+              <p class="text-gray-700 mb-4">Get comprehensive analysis and treatment recommendations</p>
+              <ul class="text-sm text-gray-600 space-y-2 list-disc inline-block text-left mx-auto">
+                <li>Personalized molecular insights</li>
+                <li>Ranked treatment options with AI confidence</li>
+                <li>Evidence-based protocol recommendations</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <button class="px-8 py-4 bg-teal-600 text-white rounded-lg hover:bg-teal-700 inline-flex items-center gap-2 font-semibold shadow-lg transition-all duration-150 ease-in-out">
+              Start Your Analysis
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-semibold text-center text-teal-600 uppercase mb-2">FAQ</h2>
+          <h3 class="text-4xl font-bold text-center text-gray-900 mb-16">Common Questions</h3>
+
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <button onclick="toggleFAQ('faq1')" class="w-full px-6 py-4 text-left font-semibold text-xl flex justify-between items-center hover:bg-gray-50 transition-colors duration-150">
+                How does Julia analyze patient data?
+                <svg class="w-6 h-6 text-teal-600 transform transition-transform duration-200" id="faq1-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <div id="faq1" class="hidden px-6 py-4 border-t border-gray-100">
+                <p class="text-gray-700">Julia uses a three-layer AI architecture: (1) Foundation Layer with agentic spheroids for tumor modeling, (2) Patient Data Layer processing RNAseq and blood sample data, and (3) Treatment Layer matching patients with optimal therapies based on standard oncology protocols.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <button onclick="toggleFAQ('faq2')" class="w-full px-6 py-4 text-left font-semibold text-xl flex justify-between items-center hover:bg-gray-50 transition-colors duration-150">
+                What types of data can Julia process?
+                <svg class="w-6 h-6 text-teal-600 transform transition-transform duration-200" id="faq2-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <div id="faq2" class="hidden px-6 py-4 border-t border-gray-100">
+                <p class="text-gray-700">Julia can process RNAseq data, blood sample markers (including CA-125 and HE4), and clinical data through an intuitive Excel interface. She also integrates with standard oncology protocols from NCCN, ESMO, and ASCO.</p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+              <button onclick="toggleFAQ('faq3')" class="w-full px-6 py-4 text-left font-semibold text-xl flex justify-between items-center hover:bg-gray-50 transition-colors duration-150">
+                How accurate are Julia's predictions?
+                <svg class="w-6 h-6 text-teal-600 transform transition-transform duration-200" id="faq3-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
+              <div id="faq3" class="hidden px-6 py-4 border-t border-gray-100">
+                <p class="text-gray-700">Julia provides confidence scores with each prediction, based on extensive training on clinical data and agentic spheroid modeling. Her multi-layer architecture ensures comprehensive analysis and validation against established medical protocols.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        function toggleFAQ(id) {
+          const content = document.getElementById(id);
+          const icon = document.getElementById(id + '-icon');
+          content.classList.toggle('hidden');
+          icon.classList.toggle('rotate-180');
+        }
+      </script>
+
+    </main>
+    
+    <footer class="bg-gray-900 text-white text-center p-6">
+      <p>&copy; 2025 Spheroid AI. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
